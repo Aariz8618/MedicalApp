@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="337dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="48dp"
+    app:cardElevation="8dp"
+    android:backgroundTint="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center">
+
+        <!-- Success Icon Circle -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="131dp"
+            android:layout_height="131dp"
+            app:cardCornerRadius="107dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="#A4CFC3">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_check_success"
+                app:tint="@null" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Text Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Congratulations!"
+                android:textColor="#1C2A3A"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="10sp" />
+
+            <TextView
+                android:layout_width="252dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Your account is ready to use. You will be redirected to the Home Page in a few seconds..."
+                android:textColor="#6B7280"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif"
+                android:textAlignment="center"
+                android:lineSpacingExtra="7sp" />
+
+        </LinearLayout>
+
+        <!-- Loading Spinner -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="32dp"
+            android:indeterminateTint="#1F2A37" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
