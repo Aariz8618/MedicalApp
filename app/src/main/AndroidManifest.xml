@@ -24,7 +24,7 @@
 
         <!-- Main Activity - Splash Screen (Launcher) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
