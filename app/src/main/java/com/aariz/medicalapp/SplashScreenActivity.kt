@@ -76,7 +76,7 @@ class SplashScreenActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { document ->
                 if (document.exists() && document.getBoolean("profileCompleted") == true) {
-                    // Profile is complete -> Navigate to Home (you'll create this later)
+                    // Profile is complete -> Navigate to Home
                     navigateToHome()
                 } else {
                     // Profile not complete -> Navigate to Profile Setup
@@ -109,13 +109,9 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun navigateToHome() {
-
-        android.widget.Toast.makeText(
-            this,
-            "Home screen coming soon! For now, signing out...",
-            android.widget.Toast.LENGTH_SHORT
-        ).show()
-        auth.signOut()
-        navigateToSignIn()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 }

@@ -78,7 +78,7 @@
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:layout_gravity="bottom|end"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="26dp"
                 android:src="@drawable/edit_icon"
                 android:clickable="true"

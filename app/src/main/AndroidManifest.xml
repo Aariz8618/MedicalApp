@@ -57,6 +57,32 @@
             android:exported="false"
             android:theme="@style/Theme.MedicalApp" />
 
+        <!-- Main Activity (Home with Bottom Navigation) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MedicalApp" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".DoctorListActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".FavoritesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MedicalApp" />
+
+        <activity
+            android:name=".DoctorDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MedicalApp"/>
+
+
+
     </application>
 
 </manifest>

@@ -2,4 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="tab_unselected_text">#1C2A3A</color>
+
+    <!-- Primary Colors -->
+    <color name="primary_dark">#1C2A3A</color>
+    <color name="primary_text">#1F2A37</color>
+    <color name="secondary_text">#374151</color>
+    <color name="tertiary_text">#4B5563</color>
+    <color name="gray_text">#6B7280</color>
+    <color name="light_gray">#9CA3AF</color>
+
+    <!-- Background Colors -->
+    <color name="background_white">#FFFFFF</color>
+    <color name="background_light">#F3F4F6</color>
+
+    <!-- Border Colors -->
+    <color name="border_light">#E5E7EB</color>
+
+    <!-- Accent Colors -->
+    <color name="star_yellow">#FEB052</color>
+    <color name="overlay_dark">#331F2A37</color>
 </resources>
