@@ -4,13 +4,13 @@
         android:icon="@drawable/ic_home"
         android:title="Dashboard" />
     <item
+        android:id="@+id/nav_reports"
+        android:icon="@drawable/ic_laboratory"
+        android:title="Reports" />
+    <item
         android:id="@+id/nav_patients"
         android:icon="@drawable/ic_patients"
         android:title="Patients" />
-    <item
-        android:id="@+id/nav_schedule"
-        android:icon="@drawable/ic_calendar"
-        android:title="Schedule" />
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_user"

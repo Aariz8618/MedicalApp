@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.content.Intent
 
 class MainDoctorActivity : AppCompatActivity() {
 
@@ -22,8 +21,8 @@ class MainDoctorActivity : AppCompatActivity() {
 
             val newIndex = when (it.itemId) {
                 R.id.nav_dashboard -> 0
-                R.id.nav_patients -> 1
-                R.id.nav_schedule -> 2
+                R.id.nav_reports -> 1
+                R.id.nav_patients -> 2
                 R.id.nav_profile -> 3
                 else -> 0
             }
@@ -32,8 +31,8 @@ class MainDoctorActivity : AppCompatActivity() {
 
             val fragment = when (it.itemId) {
                 R.id.nav_dashboard -> DashboardFragment()
+                R.id.nav_reports -> ReportsFragment()
                 R.id.nav_patients -> PatientsFragment()
-                R.id.nav_schedule -> ScheduleFragment()
                 R.id.nav_profile -> ProfileDoctorFragment()
                 else -> DashboardFragment()
             }

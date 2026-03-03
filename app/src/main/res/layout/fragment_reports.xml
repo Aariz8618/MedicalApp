@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <!--  Header Section  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <!--  Title Bar  -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Patient Reports"
+                android:textColor="#1C1C1E"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <!--  Search Bar  -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#F5F5F5"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="4dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="#9E9E9E" />
+
+                <EditText
+                    android:id="@+id/searchEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="Search reports..."
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:textColor="#1C1C1E"
+                    android:textColorHint="#9E9E9E"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--  Filter Tab Bar  -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="24dp">
+
+                <TextView
+                    android:id="@+id/tab_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tab_selected_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="24dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="24dp"
+                    android:paddingBottom="8dp"
+                    android:text="All"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tab_pending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/tab_unselected_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="20dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="8dp"
+                    android:text="Pending"
+                    android:textColor="#1C2A3A"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tab_analyzed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/tab_unselected_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="20dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="8dp"
+                    android:text="Analyzed"
+                    android:textColor="#1C2A3A"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tab_critical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/tab_unselected_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="20dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="8dp"
+                    android:text="Critical"
+                    android:textColor="#1C2A3A"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!--  Results Header  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvReportCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="6 reports"
+            android:textColor="#1C1C1E"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latest"
+            android:textColor="#6B7280"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_arrow_up_down" />
+    </LinearLayout>
+
+    <!--  RecyclerView for Report Cards  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewReports"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp" />
+
+</LinearLayout>

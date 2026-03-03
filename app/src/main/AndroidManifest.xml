@@ -36,6 +36,12 @@
 
         <!-- Schedule Activity -->
 
+        <!-- Report Detail Activity -->
+        <activity
+            android:name=".ReportDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MedicalApp" />
+
         <!-- Splash Screen -->
         <activity
             android:name=".SplashScreenActivity"
