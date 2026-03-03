@@ -22,16 +22,25 @@
         android:usesCleartextTraffic="false"
         tools:targetApi="31">
 
-        <!-- Main Activity - Splash Screen (Launcher) -->
+        <!-- 🔥 Doctor Main Activity (Temporary Launcher) -->
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".MainDoctorActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.MedicalApp">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Schedule Activity -->
+
+        <!-- Splash Screen -->
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- Onboarding Activity -->
         <activity
@@ -57,14 +66,11 @@
             android:exported="false"
             android:theme="@style/Theme.MedicalApp" />
 
-        <!-- Main Activity (Home with Bottom Navigation) -->
+        <!-- Patient Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.MedicalApp" />
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".DoctorListActivity"
@@ -79,9 +85,11 @@
         <activity
             android:name=".DoctorDetailsActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedicalApp"/>
+            android:theme="@style/Theme.MedicalApp" />
 
-
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 

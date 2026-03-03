@@ -1,0 +1,351 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+        <!--  Top Bar  -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:clickable="true"
+                android:contentDescription="Back"
+                android:focusable="true"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#292D32" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="10sp"
+                android:text="Fill Your Profile"
+                android:textColor="#374151"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--  Profile Picture Container  -->
+        <FrameLayout
+            android:id="@+id/profilePictureContainer"
+            android:layout_width="168dp"
+            android:layout_height="168dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topBar">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfilePicture"
+                android:layout_width="168dp"
+                android:layout_height="168dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile_placeholder" />
+
+            <ImageView
+                android:id="@+id/btnEditPicture"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="26dp"
+                android:clickable="true"
+                android:contentDescription="Edit profile picture"
+                android:focusable="true"
+                android:src="@drawable/edit_icon" />
+        </FrameLayout>
+        <!--  Full Name  -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilFullName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Full Name"
+            app:boxBackgroundColor="#F9FAFB"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9CA3AF"
+            app:boxStrokeWidth="1dp"
+            app:hintTextColor="#9CA3AF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profilePictureContainer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:inputType="textPersonName"
+                android:lineSpacingExtra="7sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="#1C2A3A"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--  Specialization  -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSpecialization"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Specialization"
+            app:boxBackgroundColor="#F9FAFB"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9CA3AF"
+            app:boxStrokeWidth="1dp"
+            app:endIconTint="#9CA3AF"
+            app:hintTextColor="#9CA3AF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilFullName">
+
+            <AutoCompleteTextView
+                android:id="@+id/actvSpecialization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:inputType="none"
+                android:lineSpacingExtra="7sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="#1C2A3A"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--  Email  -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Email"
+            app:boxBackgroundColor="#F9FAFB"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9CA3AF"
+            app:boxStrokeWidth="1dp"
+            app:hintTextColor="#9CA3AF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilSpecialization">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:fontFamily="sans-serif"
+                android:inputType="textEmailAddress"
+                android:lineSpacingExtra="7sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="doctor@example.com"
+                android:textColor="#1C2A3A"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--  License Number  -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLicenseNumber"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Medical License Number"
+            app:boxBackgroundColor="#F9FAFB"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9CA3AF"
+            app:boxStrokeWidth="1dp"
+            app:hintTextColor="#9CA3AF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLicenseNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:lineSpacingExtra="7sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="#1C2A3A"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--  Hospital / Clinic  -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilHospital"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Hospital / Clinic"
+            app:boxBackgroundColor="#F9FAFB"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9CA3AF"
+            app:boxStrokeWidth="1dp"
+            app:hintTextColor="#9CA3AF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilLicenseNumber">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etHospital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:lineSpacingExtra="7sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="#1C2A3A"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--  Years of Experience  -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilExperience"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Years of Experience"
+            app:boxBackgroundColor="#F9FAFB"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9CA3AF"
+            app:boxStrokeWidth="1dp"
+            app:hintTextColor="#9CA3AF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilHospital">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:inputType="number"
+                android:lineSpacingExtra="7sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="#1C2A3A"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--  Gender Dropdown  -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilGender"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Gender"
+            app:boxBackgroundColor="#F9FAFB"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9CA3AF"
+            app:boxStrokeWidth="1dp"
+            app:endIconTint="#9CA3AF"
+            app:hintTextColor="#9CA3AF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilExperience">
+
+            <AutoCompleteTextView
+                android:id="@+id/actvGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:inputType="none"
+                android:lineSpacingExtra="7sp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="#1C2A3A"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--  Save Button  -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#1C2A3A"
+            android:fontFamily="sans-serif-medium"
+            android:lineSpacingExtra="8sp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:cornerRadius="55dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilGender" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

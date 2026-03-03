@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Appointment"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#1C2A3A"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etPatientName"
+        android:hint="Patient Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etType"
+        android:hint="Appointment Type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+
+    <EditText
+        android:id="@+id/etTime"
+        android:hint="Date &amp; Time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:focusable="false"
+        android:clickable="true"
+        android:inputType="none"/>
+
+    <EditText
+        android:id="@+id/etStatus"
+        android:hint="Status (Upcoming/Completed/Cancelled)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Appointment"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#1C2A3A"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>
