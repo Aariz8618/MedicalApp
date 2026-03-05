@@ -1,5 +1,6 @@
 package com.aariz.medicalapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -34,7 +35,9 @@ class PatientsFragment : Fragment(R.layout.my_patients) {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewPatients)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = PatientListAdapter(filteredPatients)
+        adapter = PatientListAdapter(filteredPatients) { patient ->
+            openPatientDetail(patient)
+        }
         recyclerView.adapter = adapter
 
         updateFilteredList(view)
@@ -76,17 +79,139 @@ class PatientsFragment : Fragment(R.layout.my_patients) {
             })
     }
 
+    private fun openPatientDetail(patient: PatientInfo) {
+        val intent = Intent(requireContext(), PatientDetailActivity::class.java).apply {
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_ID, patient.id)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_NAME, patient.name)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_AGE, patient.age)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_GENDER, patient.gender)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_CONDITION, patient.condition)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_STATUS, patient.status)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_LAST_VISIT, patient.lastVisit)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_BLOOD_GROUP, patient.bloodGroup)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_ALLERGIES, patient.allergiesCount)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_MEDICAL_HISTORY, patient.medicalHistory)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_MEDICATIONS, patient.medications)
+            putExtra(PatientDetailActivity.EXTRA_PATIENT_VISIT_NOTES, patient.visitNotes)
+        }
+        startActivity(intent)
+    }
+
     private fun setupDummyData() {
         allPatients.addAll(
             listOf(
-                PatientInfo("Emily Anderson", 34, "Female", "Feb 20, 2026", "Hypertension", "Active"),
-                PatientInfo("James Carter", 45, "Male", "Feb 18, 2026", "Diabetes Type 2", "Active"),
-                PatientInfo("Sophia Williams", 28, "Female", "Feb 15, 2026", "Acute Hepatitis", "Critical"),
-                PatientInfo("Michael Brown", 52, "Male", "Feb 12, 2026", "Cardiomegaly", "Active"),
-                PatientInfo("Priya Sharma", 30, "Female", "Feb 10, 2026", "Hypothyroidism", "New"),
-                PatientInfo("Ravi Kumar", 60, "Male", "Feb 8, 2026", "Arrhythmia", "Active"),
-                PatientInfo("Ananya Patel", 22, "Female", "Jan 28, 2026", "Anemia", "Discharged"),
-                PatientInfo("David Lee", 38, "Male", "Jan 20, 2026", "Pneumonia", "Discharged")
+                PatientInfo(
+                    id = 1,
+                    name = "Emily Anderson",
+                    age = 34,
+                    gender = "Female",
+                    lastVisit = "Feb 20, 2026",
+                    condition = "Hypertension",
+                    status = "Active",
+                    bloodGroup = "A+",
+                    allergiesCount = 1,
+                    medicalHistory = "Hypertension diagnosed in 2018. Managed with lifestyle changes and medication. No prior hospitalizations.",
+                    medications = "Amlodipine 5mg – Once daily\nLisinopril 10mg – Once daily",
+                    visitNotes = "BP stable at 130/85. Patient reports mild headaches. Advised to monitor BP twice daily and reduce sodium intake."
+                ),
+                PatientInfo(
+                    id = 2,
+                    name = "James Carter",
+                    age = 45,
+                    gender = "Male",
+                    lastVisit = "Feb 18, 2026",
+                    condition = "Diabetes Type 2",
+                    status = "Active",
+                    bloodGroup = "O+",
+                    allergiesCount = 0,
+                    medicalHistory = "Type 2 Diabetes diagnosed in 2020. Well-controlled with diet and metformin.",
+                    medications = "Metformin 500mg – Twice daily\nAtorvastatin 10mg – Once at night",
+                    visitNotes = "HbA1c 6.8%. Advised to continue current regimen and increase physical activity."
+                ),
+                PatientInfo(
+                    id = 3,
+                    name = "Sophia Williams",
+                    age = 28,
+                    gender = "Female",
+                    lastVisit = "Feb 15, 2026",
+                    condition = "Acute Hepatitis",
+                    status = "Critical",
+                    bloodGroup = "B+",
+                    allergiesCount = 2,
+                    medicalHistory = "Acute Hepatitis B. Elevated liver enzymes. Requires close monitoring.",
+                    medications = "Tenofovir 300mg – Once daily\nVitamin B complex – Once daily",
+                    visitNotes = "Liver enzymes elevated (ALT 280). Advised bed rest and adequate hydration. Follow-up in 1 week."
+                ),
+                PatientInfo(
+                    id = 4,
+                    name = "Michael Brown",
+                    age = 52,
+                    gender = "Male",
+                    lastVisit = "Feb 12, 2026",
+                    condition = "Cardiomegaly",
+                    status = "Active",
+                    bloodGroup = "AB+",
+                    allergiesCount = 1,
+                    medicalHistory = "Cardiomegaly with mild left ventricular dysfunction. On cardiac medications since 2021.",
+                    medications = "Carvedilol 6.25mg – Twice daily\nFurosemide 20mg – Once daily",
+                    visitNotes = "Echo shows stable LV function. BNP slightly elevated. Continue current medications."
+                ),
+                PatientInfo(
+                    id = 5,
+                    name = "Priya Sharma",
+                    age = 30,
+                    gender = "Female",
+                    lastVisit = "Feb 10, 2026",
+                    condition = "Hypothyroidism",
+                    status = "New",
+                    bloodGroup = "A-",
+                    allergiesCount = 0,
+                    medicalHistory = "Newly diagnosed hypothyroidism. TSH elevated at 8.2. No prior thyroid issues.",
+                    medications = "Levothyroxine 50mcg – Once daily (morning, empty stomach)",
+                    visitNotes = "TSH 8.2, Free T4 low. Started on Levothyroxine. Repeat TFT in 6 weeks."
+                ),
+                PatientInfo(
+                    id = 6,
+                    name = "Ravi Kumar",
+                    age = 60,
+                    gender = "Male",
+                    lastVisit = "Feb 8, 2026",
+                    condition = "Arrhythmia",
+                    status = "Active",
+                    bloodGroup = "O-",
+                    allergiesCount = 3,
+                    medicalHistory = "Atrial fibrillation since 2019. Anticoagulation therapy ongoing. Pacemaker evaluation pending.",
+                    medications = "Warfarin 5mg – Once daily\nBisoprolol 5mg – Once daily\nApixaban 5mg – Twice daily",
+                    visitNotes = "INR 2.4 (within range). Heart rate 72 bpm at rest. Continue current anticoagulation."
+                ),
+                PatientInfo(
+                    id = 7,
+                    name = "Ananya Patel",
+                    age = 22,
+                    gender = "Female",
+                    lastVisit = "Jan 28, 2026",
+                    condition = "Anemia",
+                    status = "Discharged",
+                    bloodGroup = "B-",
+                    allergiesCount = 0,
+                    medicalHistory = "Iron-deficiency anemia. Treated with IV iron infusion. Discharged with oral supplements.",
+                    medications = "Ferrous sulfate 200mg – Once daily",
+                    visitNotes = "Hb improved to 11.2 g/dL post-infusion. Discharged. Follow-up in 4 weeks."
+                ),
+                PatientInfo(
+                    id = 8,
+                    name = "David Lee",
+                    age = 38,
+                    gender = "Male",
+                    lastVisit = "Jan 20, 2026",
+                    condition = "Pneumonia",
+                    status = "Discharged",
+                    bloodGroup = "A+",
+                    allergiesCount = 1,
+                    medicalHistory = "Community-acquired pneumonia. Treated with IV antibiotics for 5 days. Full recovery.",
+                    medications = "Amoxicillin 500mg – Three times daily (completed course)",
+                    visitNotes = "Chest X-ray clear. SpO2 98% on room air. Discharged with oral antibiotics to complete the course."
+                )
             )
         )
     }
@@ -112,3 +237,4 @@ class PatientsFragment : Fragment(R.layout.my_patients) {
         adapter.notifyDataSetChanged()
     }
 }
+

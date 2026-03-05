@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class PatientListAdapter(
-    private val list: MutableList<PatientInfo>
+    private val list: MutableList<PatientInfo>,
+    private val onItemClick: ((PatientInfo) -> Unit)? = null
 ) : RecyclerView.Adapter<PatientListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -36,10 +37,26 @@ class PatientListAdapter(
         holder.status.text = patient.status
 
         when (patient.status) {
-            "Active" -> holder.status.setBackgroundResource(R.drawable.bg_status_analyzed)
-            "New" -> holder.status.setBackgroundResource(R.drawable.bg_status_new_patient)
-            "Discharged" -> holder.status.setBackgroundResource(R.drawable.bg_status_discharged)
-            "Critical" -> holder.status.setBackgroundResource(R.drawable.bg_status_critical)
+            "Active" -> {
+                holder.status.setBackgroundResource(R.drawable.bg_status_active)
+                holder.status.setTextColor(0xFF4CAF50.toInt())
+            }
+            "New" -> {
+                holder.status.setBackgroundResource(R.drawable.bg_status_new_pill)
+                holder.status.setTextColor(0xFF2196F3.toInt())
+            }
+            "Discharged" -> {
+                holder.status.setBackgroundResource(R.drawable.bg_status_discharged_pill)
+                holder.status.setTextColor(0xFF9E9E9E.toInt())
+            }
+            "Critical" -> {
+                holder.status.setBackgroundResource(R.drawable.bg_status_critical_pill)
+                holder.status.setTextColor(0xFFF44336.toInt())
+            }
+        }
+
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(patient)
         }
     }
 }
