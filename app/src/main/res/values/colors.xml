@@ -22,4 +22,10 @@
     <!-- Accent Colors -->
     <color name="star_yellow">#FEB052</color>
     <color name="overlay_dark">#331F2A37</color>
+
+    <!-- Status Badge Text Colors -->
+    <color name="status_active_text">#4CAF50</color>
+    <color name="status_critical_text">#F44336</color>
+    <color name="status_new_text">#2196F3</color>
+    <color name="status_discharged_text">#9E9E9E</color>
 </resources>

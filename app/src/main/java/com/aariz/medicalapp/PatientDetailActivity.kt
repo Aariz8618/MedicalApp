@@ -36,11 +36,18 @@ class PatientDetailActivity : AppCompatActivity() {
         val medications = intent.getStringExtra(EXTRA_PATIENT_MEDICATIONS) ?: ""
         val visitNotes = intent.getStringExtra(EXTRA_PATIENT_VISIT_NOTES) ?: ""
 
+        val tvAge = findViewById<TextView>(R.id.tvDetailAge)
+        val tvAllergies = findViewById<TextView>(R.id.tvDetailAllergies)
+        val tvBlood = findViewById<TextView>(R.id.tvDetailBlood)
+
         findViewById<TextView>(R.id.tvDetailName).text = name
         findViewById<TextView>(R.id.tvDetailDiagnosis).text = condition
-        findViewById<TextView>(R.id.tvDetailAge).text = age.toString()
-        findViewById<TextView>(R.id.tvDetailBlood).text = bloodGroup
-        findViewById<TextView>(R.id.tvDetailAllergies).text = allergiesCount.toString()
+        tvAge.text = age.toString()
+        tvAge.contentDescription = "$age years old"
+        tvBlood.text = bloodGroup
+        tvBlood.contentDescription = "Blood group $bloodGroup"
+        tvAllergies.text = allergiesCount.toString()
+        tvAllergies.contentDescription = "$allergiesCount allergies"
         if (medicalHistory.isNotEmpty()) {
             findViewById<TextView>(R.id.tvDetailMedicalHistory).text = medicalHistory
         }
